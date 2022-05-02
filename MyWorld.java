@@ -6,5 +6,7 @@ public class MyWorld extends World {
 		super(600, 400, 1);
 		Mouse mouse = new Mouse();
 		addObject(mouse, 300, 200);
+		Fly fly = new Fly();
+		addObject(fly, 20, 20);
 	}
 }
