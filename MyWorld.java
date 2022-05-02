@@ -9,4 +9,12 @@ public class MyWorld extends World {
 		Fly fly = new Fly();
 		addObject(fly, 20, 20);
 	}
+	
+	public void act() {
+		if (Greenfoot.mouseClicked(this)) {
+			MouseInfo mouse = Greenfoot.getMouseInfo();
+			Dot dot = new Dot();
+			addObject(dot, mouse.getX(), mouse.getY());
+		}
+	}
 }
