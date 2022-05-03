@@ -11,7 +11,7 @@ public class MyWorld extends World {
 	}
 	
 	public void act() {
-		if (Greenfoot.mouseClicked(this)) {
+		if (Greenfoot.mouseClicked(null)) {
 			MouseInfo mouse = Greenfoot.getMouseInfo();
 			Dot dot = new Dot();
 			addObject(dot, mouse.getX(), mouse.getY());
