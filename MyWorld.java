@@ -5,10 +5,12 @@ public class MyWorld extends World {
 		// Create a new world with 600x400 cells with a cell size of 1x1 pixels.
 		super(600, 400, 1);
 		setPaintOrder(Fly.class, Mouse.class, Dot.class);
-		Mouse mouse = new Mouse();
-		addObject(mouse, 300, 200);
-		Fly fly = new Fly();
-		addObject(fly, 20, 20);
+		addObject(new Mouse(), 300, 200);
+		addObject(new Fly(), 20, 20);
+		addObject(new Dot(), 50, 50);
+		addObject(new Dot(), 550, 50);
+		addObject(new Dot(), 50, 350);
+		addObject(new Dot(), 550, 350);
 	}
 	
 	public void act() {
