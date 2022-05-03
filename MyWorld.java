@@ -1,7 +1,7 @@
 import greenfoot.*;
 
 public class MyWorld extends World {
-	private final int DOT_INTERVAL = 100;
+	static final int DOT_INTERVAL = 100;
 	
 	private int dotCountdown = DOT_INTERVAL;
 	
