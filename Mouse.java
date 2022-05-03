@@ -13,5 +13,6 @@ public class Mouse extends Actor {
 			velX = -velX;
 		if (newY <= 0 || newY >= world.getHeight() - 1)
 			velY = -velY;
+		removeTouching(Dot.class);
 	}
 }
