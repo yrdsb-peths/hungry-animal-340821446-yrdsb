@@ -22,6 +22,6 @@ public class Mouse extends Actor {
 		if (newY <= 0 || newY >= world.getHeight() - 1)
 			velY = -velY;
 		// Eat Dots
-		removeTouching(Dot.class);
+		world.removeObjects(getObjectsInRange(50, Dot.class));
 	}
 }
