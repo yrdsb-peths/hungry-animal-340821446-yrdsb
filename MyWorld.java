@@ -2,9 +2,9 @@ import greenfoot.*;
 
 public class MyWorld extends World {
 	static final int DOT_INTERVAL = 100;
-	
+
 	private int dotCountdown = DOT_INTERVAL;
-	
+
 	public MyWorld() {
 		// Create a new world with 600x400 cells with a cell size of 1x1 pixels.
 		super(600, 400, 1);
@@ -14,11 +14,11 @@ public class MyWorld extends World {
 		for (int i = 0; i < 6; i++)
 			addDot();
 	}
-	
+
 	private void addDot() {
 		addObject(new Dot(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));
 	}
-	
+
 	public void act() {
 		if (dotCountdown == 0) {
 			addDot();
