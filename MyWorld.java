@@ -8,7 +8,9 @@ public class MyWorld extends World {
 	public MyWorld() {
 		// Create a new world with 600x400 cells with a cell size of 1x1 pixels.
 		super(600, 400, 1);
-		setPaintOrder(Fly.class, Mouse.class, Dot.class);
+		setPaintOrder(Text.class, Fly.class, Mouse.class, Dot.class);
+		addObject(new Text("Click to add dots"), 300, 20);
+		addObject(new Text("Hold the Space bar for turbo mouse"), 300, 40);
 		addObject(new Mouse(), 300, 200);
 		addObject(new Fly(), 20, 20);
 		for (int i = 0; i < 6; i++)
