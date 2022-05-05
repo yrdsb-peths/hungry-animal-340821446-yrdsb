@@ -11,6 +11,8 @@ public class MyWorld extends World {
 		setPaintOrder(Text.class, Fly.class, Mouse.class, Dot.class);
 		addObject(new Text("Click to add dots"), 300, 20);
 		addObject(new Text("Hold the Space bar for turbo mouse"), 300, 40);
+		addObject(new Text("Press m to toggle manual mouse control"), 300, 60);
+		addObject(new Text("Use w/a/s/d or directions in manual mouse control"), 300, 80);
 		addObject(new Mouse(), 300, 200);
 		addObject(new Fly(), 20, 20);
 		for (int i = 0; i < 6; i++)
