@@ -35,7 +35,7 @@ public class Mouse extends Actor {
 		int newX = getX() + dx;
 		int newY = getY() + dy;
 		setLocation(newX, newY);
-		World world = getWorld();
+		MyWorld world = (MyWorld) getWorld();
 		if (!manualControl) {
 			// Bounce off of the edges of the world
 			if (newX <= 0 || newX >= world.getWidth() - 1)
@@ -44,6 +44,6 @@ public class Mouse extends Actor {
 				velY = -velY;
 		}
 		// Eat Dots
-		world.removeObjects(getObjectsInRange(50, Dot.class));
+		world.removeDots(getObjectsInRange(50, Dot.class));
 	}
 }
