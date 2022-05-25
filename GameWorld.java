@@ -3,6 +3,8 @@ import greenfoot.*;
 public class GameWorld extends World {
 	private static final int CHEESE_INTERVAL = 1000;
 	private SimpleTimer timer;
+	private Label scoreLabel;
+	private int score = 0;
 
 	public GameWorld() {
 		// Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -11,6 +13,14 @@ public class GameWorld extends World {
 
 		timer = new SimpleTimer();
 		addCheese();
+
+		scoreLabel = new Label(score, 50);
+		addObject(scoreLabel, 50, 50);
+	}
+
+	private void updateScore(int addition) {
+		score += addition;
+		scoreLabel.setValue(score);
 	}
 
 	private void addCheese() {
@@ -30,6 +40,7 @@ public class GameWorld extends World {
 		for (Cheese cheese : getObjects(Cheese.class)) {
 			if (path.contains(cheese.getX(), cheese.getY())) {
 				removeObject(cheese);
+				updateScore(1);
 			}
 		}
 	}
