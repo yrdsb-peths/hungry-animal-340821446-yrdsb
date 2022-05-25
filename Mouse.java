@@ -24,8 +24,11 @@ public class Mouse extends Actor {
 	}
 
 	public void act() {
-		if (timer.millisElapsed() > 3000 || isAtEdge()) {
+		if (timer.millisElapsed() > 3000) {
 			reorient();
+		} else if (isAtEdge()) {
+			speedX = -speedX;
+			speedY = -speedY;
 		}
 		x += speedX;
 		y += speedY;
