@@ -12,15 +12,16 @@ public class GameWorld extends World {
 	public GameWorld() {
 		// Create a new world with 600x400 cells with a cell size of 1x1 pixels.
 		super(600, 400, 1);
-		addObject(new Mouse(), 100, 100);
-		addObject(new Ant(), 100, 100);
+		setPaintOrder(Canvas.class, Mouse.class, Ant.class, Cheese.class, Label.class, Heart.class);
+		addObject(new Mouse(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));
+		addObject(new Ant(), Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));
 		addObject(new Canvas(600, 400), 300, 200);
 
 		timer = new SimpleTimer();
 		addCheese();
 
 		scoreLabel = new Label(score, 50);
-		addObject(scoreLabel, 50, 50);
+		addObject(scoreLabel, 550, 50);
 		hearts = new ArrayList<Heart>();
 		addHearts();
 	}
@@ -44,7 +45,7 @@ public class GameWorld extends World {
 		for (int i = 0; i < lives; i++) {
 			Heart heart = new Heart();
 			hearts.add(heart);
-			addObject(heart, 450 + i * 50, 50);
+			addObject(heart, 50 + i * 55, 50);
 		}
 	}
 
