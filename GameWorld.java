@@ -10,6 +10,7 @@ public class GameWorld extends World {
 		// Create a new world with 600x400 cells with a cell size of 1x1 pixels.
 		super(600, 400, 1);
 		addObject(new Mouse(), 100, 100);
+		addObject(new Ant(), 100, 100);
 		addObject(new Canvas(600, 400), 300, 200);
 
 		timer = new SimpleTimer();
@@ -37,16 +38,16 @@ public class GameWorld extends World {
 		}
 	}
 
-	public void collectCheese(java.awt.geom.Path2D.Float path) {
-		for (Cheese cheese : getObjects(Cheese.class)) {
-			if (path.contains(cheese.getX(), cheese.getY())) {
-				removeObject(cheese);
-				updateScore(1);
-			}
-		}
-		for (Mouse mouse : getObjects(Mouse.class)) {
-			if (path.contains(mouse.getX(), mouse.getY())) {
-				updateScore(-10);
+	public void capture(java.awt.geom.Path2D.Float path) {
+		for (Object object : getObjects(null)) {
+			Actor actor = (Actor) object;
+			if (path.contains(actor.getX(), actor.getY())) {
+				if (Cheese.class.isInstance(actor)) {
+					removeObject(actor);
+					updateScore(1);
+				} else if (Mouse.class.isInstance(actor) || Ant.class.isInstance(actor)) {
+					updateScore(-10);
+				}
 			}
 		}
 	}

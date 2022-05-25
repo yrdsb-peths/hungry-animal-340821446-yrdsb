@@ -47,7 +47,7 @@ public class Canvas extends Actor {
 		if (Greenfoot.mouseDragEnded(null)) {
 			isDrawing = false;
 			GameWorld world = (GameWorld) getWorld();
-			world.collectCheese(path);
+			world.capture(path);
 			path.reset();
 			graphics.clearRect(0, 0, 600, 400);
 		}
