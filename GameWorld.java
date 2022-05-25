@@ -44,5 +44,10 @@ public class GameWorld extends World {
 				updateScore(1);
 			}
 		}
+		for (Mouse mouse : getObjects(Mouse.class)) {
+			if (path.contains(mouse.getX(), mouse.getY())) {
+				updateScore(-10);
+			}
+		}
 	}
 }
